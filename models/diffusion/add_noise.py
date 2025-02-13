@@ -41,3 +41,5 @@ def AddNoise_timesteps(raw_data, decline_rate, noise_rate, seed, timesteps):
     for _ in range(timesteps):
         pic = add_noise(pic, decline_rate, noise_rate, seed)
     return pic
+
+# 然后我们再换成torch版本，GPU is all we need.
