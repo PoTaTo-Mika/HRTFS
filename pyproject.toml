@@ -1,0 +1,33 @@
+[project]
+name = "HRTFS"
+version = "0.1.0"
+authors = [
+    {name = "potato", email = "potato_zhang@nuist.edu.cn"},
+]
+description = "General Weather Forecast"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["Weather Forecast", "Diffusion"]
+license = {text = "CC BY-NC-SA 4.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy<=1.26.4",
+    xarray,
+    pandas,
+    netCDF4
+]
+
+[project.optional-dependencies]
+stable = [
+    "torch<=2.4.1",
+    "torchaudio",
+]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["fish_speech", "tools"]
