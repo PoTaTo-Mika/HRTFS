@@ -1,5 +1,10 @@
 import torch
 
+def gen_rate(generator, steps):
+    # 我们要确保这里生成的是一个2*steps的Tensor
+    rate_list = generator(steps)
+    return rate_list
+
 def linear_scheduler(timesteps):
     # 返回一个线性下降的decline_rate和线性上升的noise_rate
     decline_rate = torch.linspace(1, 0, timesteps)

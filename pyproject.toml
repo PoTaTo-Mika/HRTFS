@@ -16,13 +16,15 @@ dependencies = [
     "numpy<=1.26.4",
     xarray,
     pandas,
-    netCDF4
+    netCDF4,
+    pytorch_fid,
 ]
 
 [project.optional-dependencies]
 stable = [
     "torch<=2.4.1",
     "torchaudio",
+    "torchvision"
 ]
 
 [build-system]

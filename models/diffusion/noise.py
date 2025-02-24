@@ -34,28 +34,8 @@ def AddNoise(raw_data, decline_rate, noise_rate, seed):
 # 虽然忙了半天，但是忙了半天，接下来torch才是我们会使用的版本。
 
 import torch
+from models.diffusion.noise_scheduler import gen_rate
 
-def gen_rate(generator, steps):
-    # 我们要确保这里生成的是一个2*steps的Tensor
-    rate_list = generator(steps)
-    return rate_list
-
-'''
-def ddpm(raw_data, generator, seed, steps):
-    # 生成decline_rate列表和noise_rate列表
-    # rate_list = [decline_rate -> ndarray, noise_rate -> ndarray]
-    torch.manual_seed(seed)
-    rate_list = gen_rate(generator, steps)
-    # 预先生成所有噪声
-    decline_rate = rate_list[0]
-    noise_rate = rate_list[1]
-    for i in range(steps):
-        noise = torch.randn_like(raw_data)
-        # print(noise)
-        raw_data = decline_rate[i] * raw_data + noise_rate[i] * noise
-    return raw_data
-    
-'''
 def DDPM(raw_data, generator, seed, steps):
     """
     raw_data : torch.Tensor # 原始数据
